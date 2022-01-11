@@ -24,7 +24,7 @@ def f(id, iterator):
 
 def flat_mux_partitions_with_index(rdd):
     mux = rdd.mapPartitionsWithIndex(f)
-    return [mux.mapPartitions(lambda it: list(next(it))[i]) for i in range(5)]
+    return [mux.mapPartitions(lambda it: list(next(it))[i]) for i in range(NR_OF_SPLITS)]
 
 
 def split_rdd(rdd):
